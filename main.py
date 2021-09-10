@@ -1,6 +1,9 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import smbus
+import datetime
+import pandas as pd
+
 
 #these values source from: https://wiki.52pi.com/index.php/DockerPi_Sensor_Hub_Development_Board_SKU:_EP-0106
 
@@ -43,13 +46,16 @@ else:
     human_present = 'false'
 
 
-import datetime
 
 time_stamp = datetime.datetime.now()
 
-import pandas as pd
 
 df = pd.DataFrame(columns = ['temperature','humidity','pressure', 'brightness', 'time_stamp'])
 
 df.loc[0] = [temperature, humidity, pressure, brightness, time_stamp] 
-print(df)
+
+table = 'sensor-hub'
+
+
+from functions import *
+replace_db(df, table, engine)
