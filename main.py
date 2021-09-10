@@ -58,4 +58,4 @@ table = 'sensor-hub'
 
 
 from functions import *
-replace_db(df, table, engine)
+append_db(df, table, engine)
