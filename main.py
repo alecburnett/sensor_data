@@ -10,6 +10,7 @@ import time
 columns = columns = ['temperature_ext','temperature_int','humidity','pressure', 'brightness', 'time_stamp']
 blankdf = pd.DataFrame(columns=columns)
 
+#take average from 60 readings - *warms sensors up - internet suggests first readings after period of inactivity innaccurate..
 for i in range(60):
     time.sleep(1)   
 
